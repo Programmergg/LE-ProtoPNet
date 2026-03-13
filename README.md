@@ -158,7 +158,7 @@ If you find this repository useful for your research, please cite:
 ## ⭐ Star History
 
 <p align="center">
-  <img src="https://api.star-history.com/svg?repos=Programmergg/PCG-MoLE&type=Date" width="650">
+  <img src="https://api.star-history.com/svg?repos=Programmergg/LE-ProtoPNet&type=Date" width="650">
 </p>
 
 ---
