@@ -1,0 +1,5 @@
+_target_: data.DataModule.DataModule
+data_dir: ${paths.data_dir}/aptos2019-blindness-detection
+batch_size: 128
+valid_split: 0.2
+dataset: aptos

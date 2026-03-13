@@ -1,0 +1,5 @@
+_target_: data.MnistDatamodule.MnistDatamodule
+data_dir: ${paths.data_dir}/mnist
+download: True
+batch_size: 64
+valid_split: 0.2

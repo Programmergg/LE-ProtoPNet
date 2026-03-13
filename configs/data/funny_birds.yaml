@@ -1,0 +1,6 @@
+_target_: data.DataModule.DataModule
+data_dir: ${paths.data_dir}/FunnyBirds
+batch_size: 256
+dataset: funny_birds
+valid_split: 0.2
+img_size: 224

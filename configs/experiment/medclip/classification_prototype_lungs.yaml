@@ -1,0 +1,27 @@
+# @package _global_
+
+# specify here default configuration
+# order of defaults determines the order in which configs override each other
+
+defaults:
+   - override  /model: classification_prototype_medclip
+   - override /data: lung_image
+   - override /trainer: default
+   - override /callbacks: no_validation
+
+data:
+   valid_split: null
+   augmentation_severity: 1
+
+trainer:
+   max_epochs: 80
+model:
+   nb_prototypes: 100
+
+hydra:
+   run:
+      dir: ${paths.log_dir}/${task_name}/neurips/${data.dataset}_${now:%Y-%m-%d}_${now:%H-%M-%S}_clip_lungs
+
+logger:
+   wandb:
+      project: "intrainpretable_neurips_medclip"

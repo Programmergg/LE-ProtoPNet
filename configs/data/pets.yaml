@@ -1,0 +1,7 @@
+_target_: data.DataModule.DataModule
+data_dir: ${paths.data_dir}/pet
+batch_size: 128
+dataset: OxfordPet
+download: True
+valid_split: 0.2
+img_size: 224

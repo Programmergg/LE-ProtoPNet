@@ -1,0 +1,7 @@
+_target_: data.CubDataset.CubFewShotDataModule  # 指定要实例化的类
+root_dir: "${paths.data_dir}/cub"
+dataset: cub
+num_classes_per_task: 5  # N-way
+num_support: 5           # K-shot
+num_query: 15            # 每类的查询样本数量
+n_iter: 1000          # 批量大小

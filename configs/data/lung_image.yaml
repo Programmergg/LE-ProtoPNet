@@ -1,0 +1,6 @@
+_target_: data.DataModule.DataModule
+data_dir: ${paths.data_dir}/LC25000/lung_colon_image_set/lung_image_sets
+batch_size: 128
+dataset: lung_image
+valid_split: 0.2
+# weighted_sampler: true

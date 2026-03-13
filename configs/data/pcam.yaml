@@ -1,0 +1,9 @@
+_target_: data.DataModule.DataModule
+data_dir: ${paths.data_dir}/pcam
+download: True
+batch_size: 256
+dataset: pcam
+valid_split: 0.2
+img_size: 224
+photometrics_augmentation: False
+augmentation_severity: 3

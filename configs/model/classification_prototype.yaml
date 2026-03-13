@@ -1,0 +1,44 @@
+_target_: models.ClassificationModulePrune.ClassificationModulePrototype
+lr: 0.01
+warmup_epochs: 15
+pruning_start: 80
+max_epochs: ${trainer.max_epochs}
+embed_projection: True
+aggregate_similarity: nonlinear
+prototype_dim: 512
+nb_prototypes: 312
+prune_model_interval: 10
+threshold_importance: 0
+loss_type: cross_entropy
+freeze_backbone: False
+image_encoder:
+  _target_: models.backbones.dinov2.DinoFeaturizer.DinoFeaturizer
+  #arch: dinov2_vitb14_reg
+  arch: dino_vitb16
+  dim: ${model.prototype_dim}
+  #pretrained_weights: /home/WRS/EvalProtoPNetv1/pretrained_models/dinov2_vitb14_reg4_pretrain.pth
+  dropout: 0.1
+# sparsity_prototype_loss:
+#   _target_: models.utils.loss.WeightedHsLoss
+#   alpha: 0.01
+#   beta: 0
+#   gamma: 0.01
+#   weight_loss: 1
+#   structured: False
+#   compute_importance: True
+# info_nce_loss:
+#   _target_: models.utils.loss.Info_nce_loss
+#   weight_loss: 1e-2
+# # cons_loss:
+# #   _target_: models.utils.loss.cons_loss
+# #   weight_loss: 1e-3
+# attr_loss:
+#   _target_: models.utils.loss.attr_loss
+#   weight_loss: 3e-4
+# attn_loss:
+#   _target_: models.utils.loss.attn_loss
+#   weight_loss: 1e-3
+# l1_reg:
+#   _target_: models.utils.loss.l1_reg
+#   weight_loss: 0.001
+

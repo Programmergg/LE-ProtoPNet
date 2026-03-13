@@ -1,0 +1,4 @@
+_target_: data.NIHChestXrayDataModule.NIHDatamodule
+data_dir: ${paths.data_dir}/nih_chest_x_ray
+batch_size: 128
+valid_split: 0.2

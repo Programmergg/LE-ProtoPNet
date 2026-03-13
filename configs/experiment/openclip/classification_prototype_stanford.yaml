@@ -1,0 +1,26 @@
+# @package _global_
+
+# specify here default configuration
+# order of defaults determines the order in which configs override each other
+
+defaults:
+   - override  /model: classification_prototype_clip
+   - override /data: stanford_cars
+   - override /callbacks: no_validation
+   - override /trainer: default
+
+data:
+   valid_split: null
+   photometrics_augmentation: False
+   augmentation_severity: 8
+
+trainer:
+   max_epochs: 80
+
+logger:
+   wandb:
+      project: "intrainpretable_neurips_sparsity_clip"
+
+hydra:
+   run:
+      dir: ${paths.log_dir}/${task_name}/neurips/${data.dataset}_${now:%Y-%m-%d}_${now:%H-%M-%S}_clip_stanford

@@ -1,0 +1,5 @@
+_target_: data.CifarDatamodule.CifarDatamodule
+data_dir: ${paths.data_dir}/cifar
+download: True
+batch_size: 128
+valid_split: 0.2

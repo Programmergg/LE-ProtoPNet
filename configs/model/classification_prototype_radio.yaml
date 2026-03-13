@@ -1,0 +1,28 @@
+_target_: models.ClassificationModulePrune.ClassificationModulePrototype
+lr: 0.01
+warmup_epochs: 30
+pruning_start: 50
+nb_background_prototypes: 50
+prune_model_interval: 10
+max_epochs: ${trainer.max_epochs}
+embed_projection: True
+aggregate_similarity: nonlinear
+prototype_dim: 1024
+nb_prototypes: 400
+threshold_importance: 0
+loss_type: cross_entropy
+freeze_backbone: True
+image_encoder:
+  _target_: models.backbones.radio.RadioFeaturizer.RadioFeaturizer
+  arch: eradio
+  dim: ${model.prototype_dim}
+  dropout: 0.1
+sparsity_prototype_loss:
+  _target_: models.utils.loss.WeightedHsLoss
+  alpha: 1
+  beta: 0
+  gamma: 0.0
+  weight_loss: 1
+sparsity_similarity_loss:
+  _target_: models.utils.loss.HsLoss
+  weight_loss: 0.001

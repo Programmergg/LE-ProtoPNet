@@ -1,0 +1,6 @@
+_target_: data.DataModule.DataModule
+data_dir: ${paths.data_dir}/flowers102
+batch_size: 128
+dataset: flowers102
+download: True
+valid_split: 0.2

@@ -1,0 +1,26 @@
+_target_: models.ClassificationModulePrune.ClassificationModulePrototype
+lr: 0.01
+warmup_epochs: 15
+pruning_start: 80
+max_epochs: ${trainer.max_epochs}
+embed_projection: True
+aggregate_similarity: nonlinear
+prototype_dim: 512
+nb_prototypes: 300
+prune_model_interval: 10
+threshold_importance: 0
+loss_type: cross_entropy
+freeze_backbone: True
+image_encoder:
+  _target_: models.backbones.openclip.OpenClipFeaturizer.OpenClipFeaturizer
+  arch: open_clip_large
+  dim: ${model.prototype_dim}
+  dropout: 0.1
+sparsity_prototype_loss:
+  _target_: models.utils.loss.WeightedHsLoss
+  alpha: 0.01
+  beta: 0
+  gamma: 0.01
+  weight_loss: 1
+  structured: False
+  compute_importance: True

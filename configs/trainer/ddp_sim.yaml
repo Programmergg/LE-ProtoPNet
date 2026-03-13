@@ -1,0 +1,8 @@
+defaults:
+  - default.yaml
+
+# simulate DDP on CPU, useful for debugging
+accelerator: cpu
+devices: 4
+strategy: ddp_find_unused_parameters_true
+use_distributed_sampler: False
