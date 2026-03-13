@@ -15,9 +15,9 @@ Zhong Ji, Rongshuai Wei, Jingren Liu, Yanwei Pang, Jungong Han
 ## 🔥 News
 - **[2026-03-09]** Repository initialized.
 - **[2026-03-09]** README released.
-- **[TODO]** Training and evaluation code will be released.
-- **[TODO]** Pretrained checkpoints will be released.
-- **[TODO]** Reproducibility guide will be released.
+- **[2026-03-13]** Training and evaluation code will be released.
+- **[2026-03-13]** Pretrained checkpoints will be released.
+- **[2026-03-13]** Reproducibility guide will be released.
 
 ---
 
@@ -51,5 +51,123 @@ Experimental results on six popular benchmarks show that our method consistently
 - Multi-level feature preservation for stronger low-data representations
 - Geometry-aware concept discrimination for clearer and less-overlapping concepts
 - Strong results on **CUB-200-2011, mini-ImageNet, CIFAR-FS, Stanford Cars, FGVC-Aircraft, and DTD**
+
+---
+
+## 📁 Repository Structure
+
+The current repository is organized as follows:
+
+```text
+LE-ProtoPNet/
+├── configs/                 # experiment configuration files
+├── data/                    # dataset storage / preprocessing utilities
+├── evaluation/              # evaluation metrics and testing utilities
+├── models/                  # backbone networks, concept modules, MoLE implementation
+├── shared_utils/            # common utilities (logging, helpers, training utils)
+├── train_fsl.py             # few-shot training entry point
+├── test_fsl.py              # few-shot evaluation script
+└── env.yaml                 # conda environment specification
+```
+
+---
+
+## ⚙️ Installation
+
+### 1. Create Conda Environment
+
+```bash
+conda env create -f env.yaml
+conda activate LEProtoPNet
+```
+
+---
+
+## 📊 Supported Datasets
+
+Our framework supports several commonly used **few-shot image classification benchmarks**:
+
+* **CUB-200-2011**
+* **mini-ImageNet**
+* **CIFAR-FS**
+* **Stanford Cars**
+* **FGVC Aircraft**
+* **DTD (Describable Textures Dataset)**
+
+---
+
+### Dataset Directory Structure
+
+After downloading the datasets, organize them as follows:
+
+```text
+data/
+├── cub/
+│   ├── images
+│   └── splits
+├── mini_imagenet/
+│   ├── images
+│   └── splits
+├── cifar_fs/
+│   └── splits
+├── stanford_cars/
+├── fgvc_aircraft/
+└── dtd/
+```
+
+Dataset split files should follow the standard **few-shot meta-learning splits** used in prior work.
+
+---
+
+## 🏋️ Training
+
+The training pipeline is implemented in **`train_fsl.py`**.
+
+```bash
+python train_fsl.py
+```
+
+---
+
+## 🧪 Evaluation
+
+Evaluation is implemented in **`test_fsl.py`**.
+
+```bash
+python test_fsl.py
+```
+
+---
+
+## 📜 Citation
+
+If you find this repository useful for your research, please cite:
+
+```bibtex
+@article{ji2026interpretable,
+  title={Interpretable Few-Shot Image Classification via Prototypical Concept-Guided Mixture of LoRA Experts},
+  author={Ji, Zhong and Wei, Rongshuai and Liu, Jingren and Pang, Yanwei and Han, Jungong},
+  journal={IEEE Transactions on Image Processing},
+  year={2026},
+  publisher={IEEE}
+}
+```
+
+---
+
+## ⭐ Star History
+
+<p align="center">
+  <img src="https://api.star-history.com/svg?repos=Programmergg/PCG-MoLE&type=Date" width="650">
+</p>
+
+---
+
+## 📬 Contact
+
+For questions, suggestions, or collaborations:
+
+* **Email:** [jrl0219@tju.edu.cn](mailto:jrl0219@tju.edu.cn)
+* **GitHub Issues:** Please open an issue in this repository.
 
 ---
